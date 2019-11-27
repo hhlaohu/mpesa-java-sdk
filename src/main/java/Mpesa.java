@@ -12,6 +12,7 @@ public class Mpesa {
 	public Mpesa(String app_key, String app_secret) {
 		appKey = app_key;
 		appSecret = app_secret;
+
 	}
 
 	public String getAppKey() {
@@ -84,7 +85,7 @@ public class Mpesa {
 		MediaType mediaType = MediaType.parse("application/json");
 		RequestBody body = RequestBody.create(mediaType, requestJson);
 		Request request = new Request.Builder()
-				.url("https://sandbox.safaricom.co.ke/safaricom/c2b/v1/simulate")
+				.url("https://sandbox.safaricom.co.ke/mpesa/c2b/v1/simulate")
 				.post(body)
 				.addHeader("content-type", "application/json")
 				.addHeader("authorization", "Bearer " + authenticate())
@@ -92,8 +93,7 @@ public class Mpesa {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
-		return response.body().toString();
+		return response.body().string();
 	}
 
 	public String B2CRequest(String initiatorName, String securityCredential, String commandID, String amount, String partyA, String partyB, String remarks, String queueTimeOutURL, String resultURL, String occassion) throws IOException {
@@ -128,8 +128,7 @@ public class Mpesa {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
-		return response.body().toString();
+		return response.body().string();
 	}
 
 	public String B2BRequest(String initiatorName, String accountReference, String securityCredential, String commandID, String senderIdentifierType, String receiverIdentifierType, float amount, String partyA, String partyB, String remarks, String queueTimeOutURL, String resultURL, String occassion) throws IOException {
@@ -169,7 +168,6 @@ public class Mpesa {
 
 		Response response = client.newCall(request).execute();
 		return response.body().string();
-
 	}
 
 	public String STKPushSimulation(String businessShortCode, String password, String timestamp, String transactionType, String amount, String phoneNumber, String partyA, String partyB, String callBackURL, String queueTimeOutURL, String accountReference, String transactionDesc) throws IOException {
@@ -205,10 +203,8 @@ public class Mpesa {
 				.addHeader("cache-control", "no-cache")
 				.build();
 
-
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
-		return response.body().toString();
+		return response.body().string();
 	}
 
 	public String STKPushTransactionStatus(String businessShortCode, String password, String timestamp, String checkoutRequestID) throws IOException {
@@ -237,9 +233,7 @@ public class Mpesa {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
-		return response.body().toString();
-
+		return response.body().string();
 	}
 
 	public String reversal(String initiator, String securityCredential, String commandID, String transactionID, String amount, String receiverParty, String recieverIdentifierType, String resultURL, String queueTimeOutURL, String remarks, String ocassion) throws IOException {
@@ -276,7 +270,6 @@ public class Mpesa {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
 		return response.body().string();
 	}
 
@@ -323,7 +316,6 @@ public class Mpesa {
 		jsonObject.put("ConfirmationURL", confirmationURL);
 		jsonObject.put("ValidationURL", validationURL);
 
-
 		jsonArray.put(jsonObject);
 
 		String requestJson = jsonArray.toString().replaceAll("[\\[\\]]", "");
@@ -342,7 +334,6 @@ public class Mpesa {
 				.build();
 
 		Response response = client.newCall(request).execute();
-		System.out.println(response.body().string());
 		return response.body().string();
 	}
 

@@ -7,15 +7,13 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Mpesa m = new Mpesa(Constants.APP_KEY, Constants.APP_SECRET);
 //		m.authenticate();
-		m.registerURL(
-						"600576",
-						"Cancelled",
-						"https://ugly-chipmunk-74.localtunnel.me/test/confirms",
-						"https://ugly-chipmunk-74.localtunnel.me/test/validats");
+		m.registerURL(	"600576",
+						"Completed",//Completed/Canceled
+						"https://curly-puma-38.localtunnel.me/test/confirms",
+						"https://curly-puma-38.localtunnel.me/test/validats");
 
-		//CustomerBuyGoodsOnline
 
-//		String result = m.C2BSimulation("203518", "CustomerPayBillOnline", "2", "254722602567", "11111112333334");
+		String result = m.C2BSimulation("600576", "CustomerBuyGoodsOnline", "2", "254722602567", "111111123333345556");
 //		m.C2BSimulation(
 //				"203518",
 //				"CustomerPayBillOnline",
