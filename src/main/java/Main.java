@@ -1,5 +1,3 @@
-import org.omg.IOP.CodecFactory;
-
 import java.io.IOException;
 
 public class Main {
@@ -7,13 +5,16 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Mpesa m = new Mpesa(Constants.APP_KEY, Constants.APP_SECRET);
 //		m.authenticate();
-		m.registerURL(	"600576",
-						"Completed",//Completed/Canceled
-						"https://curly-puma-38.localtunnel.me/test/confirms",
-						"https://curly-puma-38.localtunnel.me/test/validats");
+		String result;
+		result = m.registerURL("600576",
+				"Completed",//Completed/Canceled
+				"https://evil-shrimp-40.localtunnel.me/test/confirms",
+				"https://evil-shrimp-40.localtunnel.me/test/validats");
 
 
-		String result = m.C2BSimulation("600576", "CustomerBuyGoodsOnline", "2", "254722602567", "111111123333345556");
+//		result = m.C2BSimulation("203518", "CustomerBuyGoodsOnline", "2", "254722602567", "1111111233333455562");
+
+		System.out.println("s = " + result);
 //		m.C2BSimulation(
 //				"203518",
 //				"CustomerPayBillOnline",
